@@ -3,6 +3,7 @@ package com.springboot.restcrud.restcrud.DAO;
 import com.springboot.restcrud.restcrud.entity.Employee;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -35,5 +36,11 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 
         return theEmployee;
 
+    }
+
+    @Override
+    public Employee save(Employee theEmployee) {
+        Employee dbEmployee = entityManager.merge(theEmployee);
+        return dbEmployee;
     }
 }

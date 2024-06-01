@@ -9,4 +9,6 @@ public interface EmployeeDAO {
 
     Employee findById(int theID);
 
+    Employee save(Employee theEmployee);
+
 }
