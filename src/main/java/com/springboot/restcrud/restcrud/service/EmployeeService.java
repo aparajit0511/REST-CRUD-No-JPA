@@ -11,4 +11,6 @@ public interface EmployeeService {
     Employee findById(int theID);
 
     Employee save(Employee theEmployee);
+
+    void deleteById(int theID);
 }
